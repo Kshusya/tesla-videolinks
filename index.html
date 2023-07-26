@@ -29,7 +29,23 @@
                 HDrezka
             </a>
         </div>
+        <div class="search-form">
+            <form id="redirect-form">
+                <input type="text" id="user-input" placeholder="Или введите ссылку">
+            </form>
+        </div>
     </div>
+    <script>
+        document.getElementById('redirect-form').addEventListener('submit', function (event) {
+            event.preventDefault(); // Предотвращаем отправку формы
+
+            const userInput = document.getElementById('user-input').value;
+            const redirectUrl = 'https://www.youtube.com/redirect?q=https://' + encodeURIComponent(userInput);
+
+            // Перенаправление пользователя на измененную ссылку
+            window.location.href = redirectUrl;
+        });
+    </script>
 </body>
 
 </html>
